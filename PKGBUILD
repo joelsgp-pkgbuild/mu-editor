@@ -15,8 +15,10 @@ depends=('pigpio' 'python-appdirs' 'python-gpiozero' 'python-guizero'
          'python-pyserial' 'python-qscintilla-qt5' 'python-qtconsole'
          'python-requests' 'python-semver' 'qt5-serialport')
 makedepends=('python-setuptools')
-source=("https://github.com/mu-editor/mu/archive/$pkgver.tar.gz")
-sha256sums=('d9917794de845231ffea671ceff24824bbe342c9d0da4340b237f7a915c0c358')
+source=("https://github.com/mu-editor/mu/archive/$pkgver.tar.gz"
+        "$pkgname.desktop")
+sha256sums=('d9917794de845231ffea671ceff24824bbe342c9d0da4340b237f7a915c0c358'
+            '4a47b1f100a2a77018bae2422cee7bfe2cbea4c9412de1abf646c2fa7a63b62e')
 
 _name=mu
 
@@ -33,12 +35,12 @@ build() {
 }
 
 package() {
-  cd "$_name-$pkgver"
-
-  # Setuptools install
-  python setup.py install --root="$pkgdir/" --optimize=1
-
   # Desktop entry
   install -Dm644 $pkgname.desktop -t "$pkgdir/usr/share/applications"
+
+  cd "$_name-$pkgver"
+  # Desktop icon
   install -Dm644 conf/mu.codewith.editor.png "$pkgdir/usr/share/pixmaps/$pkgname.png"
+  # Setuptools install
+  python setup.py install --root="$pkgdir/" --optimize=1
 }
