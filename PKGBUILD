@@ -14,27 +14,31 @@ depends=('pigpio' 'python-appdirs' 'python-gpiozero' 'python-guizero'
          'python-pycodestyle' 'python-pyflakes' 'python-pyqt5-chart>=5.15'
          'python-pyserial' 'python-qscintilla-qt5' 'python-qtconsole'
          'python-requests' 'python-semver' 'qt5-serialport')
-makedepends=('gendesk' 'python-setuptools')
-source=("$pkgname-$pkgver.tar.gz::https://github.com/mu-editor/mu/archive/$pkgver.tar.gz")
+makedepends=('python-setuptools')
+source=("https://github.com/mu-editor/mu/archive/$pkgver.tar.gz")
 sha256sums=('d9917794de845231ffea671ceff24824bbe342c9d0da4340b237f7a915c0c358')
+
+_name=mu
 
 
 prepare() {
-  cd "$srcdir/mu-$pkgver"
-  # Un-pin all dependencies, so package doesn't break when a dependency is updated
+  cd "$_name-$pkgver"
+  # Unpin all dependencies, so package doesn't break when a dependency is updated
   sed -i -e 's/==/>=/g' setup.py
 }
 
 build() {
-  cd "$srcdir/mu-$pkgver"
+  cd "$_name-$pkgver"
   python setup.py build
 }
 
 package() {
-  cd "$srcdir/mu-$pkgver"
-  python setup.py install --root="$pkgdir/" --optimize=1
-  install -Dm644 $pkgname.desktop -t "$pkgdir/usr/share/applications"
-  install -Dm644 conf/mu.codewith.editor.png "$pkgdir/usr/share/pixmaps/mu-editor.png"
-}
+  cd "$_name-$pkgver"
 
-# vim:set ts=2 sw=2 et:
+  # Setuptools install
+  python setup.py install --root="$pkgdir/" --optimize=1
+
+  # Desktop entry
+  install -Dm644 $pkgname.desktop -t "$pkgdir/usr/share/applications"
+  install -Dm644 conf/mu.codewith.editor.png "$pkgdir/usr/share/pixmaps/$pkgname.png"
+}
