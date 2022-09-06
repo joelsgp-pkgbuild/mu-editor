@@ -27,23 +27,23 @@ _name=mu
 
 
 prepare() {
-  cd "$_name-$pkgver"
-  # Unpin all dependencies, so package doesn't break when a dependency is updated
-  sed -i -e 's/==/>=/g' setup.py
+    cd "$_name-$pkgver"
+    # Unpin all dependencies, so package doesn't break when a dependency is updated
+    sed -i -e 's/==/>=/g' setup.py
 }
 
 build() {
-  cd "$_name-$pkgver"
-  python setup.py build
+    cd "$_name-$pkgver"
+    python setup.py build
 }
 
 package() {
-  # Desktop entry
-  install -Dm644 $pkgname.desktop -t "$pkgdir/usr/share/applications"
+    # Desktop entry
+    install -Dm644 $pkgname.desktop -t "$pkgdir/usr/share/applications"
 
-  cd "$_name-$pkgver"
-  # Desktop icon
-  install -Dm644 conf/mu.codewith.editor.png "$pkgdir/usr/share/pixmaps/$pkgname.png"
-  # Setuptools install
-  python setup.py install --root="$pkgdir/" --optimize=1
+    cd "$_name-$pkgver"
+    # Desktop icon
+    install -Dm644 conf/mu.codewith.editor.png "$pkgdir/usr/share/pixmaps/$pkgname.png"
+    # Setuptools install
+    python setup.py install --root="$pkgdir/" --optimize=1
 }
