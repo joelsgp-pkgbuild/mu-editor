@@ -12,10 +12,12 @@ license=('GPL3')
 # https://github.com/mu-editor/mu/blob/master/setup.py
 depends=('python-pyqt5' 'python-qscintilla-qt5' 'python-pyqt5-chart'
          'python-jupyter_client' 'python-ipykernel' 'python-ipython-genutils'
-         'python-qtconsole' 'adafruit-board-toolkit' 'python-pyserial' 'python-nudatus'
+         'python-qtconsole' 'python-adafruit-board-toolkit' 'python-pyserial' 'python-nudatus'
          'flake8' 'python-click' 'python-black' 'python-platformdirs'
          'python-semver' 'python-virtualenv' 'python-wheel' 'python-requests')
 makedepends=('python-setuptools')
+checkdepends=('python-pytest' 'python-pytest-cov' 'python-pytest-random-order'
+              'python-pytest-timeout' 'python-coverage')
 optdepends=('scrapy'
             'python-beautifulsoup4')
 source=("https://github.com/mu-editor/mu/archive/refs/tags/v$pkgver.tar.gz"
@@ -35,6 +37,11 @@ prepare() {
 build() {
     cd "$_name-$pkgver"
     python setup.py build
+}
+
+check() {
+    cd "$_name-$pkgver"
+    make -k check
 }
 
 package() {
