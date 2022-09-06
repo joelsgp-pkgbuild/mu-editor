@@ -1,5 +1,6 @@
-# Maintainer: webmeister <aur -dot- 20 -dot- webmeister -at- spamgourmet -dot- com>
-# Maintainer: Christopher Arndt <aur -at- chrisarndt -dot- de>
+# Maintainer: jmcb <joelsgp@protonmail.com>
+# Contributor: webmeister <aur -dot- 20 -dot- webmeister -at- spamgourmet -dot- com>
+# Contributor: Christopher Arndt <aur -at- chrisarndt -dot- de>
 
 pkgname=mu-editor
 pkgver=1.1.1
