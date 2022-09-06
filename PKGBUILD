@@ -4,7 +4,7 @@
 pkgname=mu-editor
 epoch=1
 pkgver=1.0.3
-pkgrel=3
+pkgrel=4
 pkgdesc='A simple Python editor for beginner programmers'
 arch=('any')
 url='https://codewith.mu/'
@@ -28,16 +28,6 @@ prepare() {
 build() {
   cd "$srcdir/mu-$pkgver"
   python setup.py build
-  gendesk -f -n \
-    --pkgname=$pkgname \
-    "--pkgdesc=$pkgdesc" \
-    "--name=Mu" \
-    "--genericname=Code Editor" \
-    "--categories=Application;Development;TextEditor" \
-    --exec=$pkgname \
-    --terminal=false \
-    --startupnotify=true \
-    "--mimetypes=text/x-python;text/x-python3"
 }
 
 package() {

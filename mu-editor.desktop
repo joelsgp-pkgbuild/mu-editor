@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Mu
+GenericName=Code Editor
+Comment=A simple Python editor for beginner programmers
+Exec=mu-editor
+Icon=mu-editor
+Terminal=false
+StartupNotify=true
+Categories=Application;Development;TextEditor;
+MimeType=text/x-python;text/x-python3;
