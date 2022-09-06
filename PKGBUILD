@@ -2,22 +2,24 @@
 # Maintainer: Christopher Arndt <aur -at- chrisarndt -dot- de>
 
 pkgname=mu-editor
-epoch=1
-pkgver=1.0.3
-pkgrel=4
+pkgver=1.1.1
+pkgrel=1
 pkgdesc='A simple Python editor for beginner programmers'
 arch=('any')
 url='https://codewith.mu/'
 license=('GPL3')
-depends=('pigpio' 'python-appdirs' 'python-gpiozero' 'python-guizero'
-         'python-matplotlib' 'python-nudatus' 'python-pgzero'
-         'python-pycodestyle' 'python-pyflakes' 'python-pyqt5-chart>=5.15'
-         'python-pyserial' 'python-qscintilla-qt5' 'python-qtconsole'
-         'python-requests' 'python-semver' 'qt5-serialport')
+# https://github.com/mu-editor/mu/blob/master/setup.py
+# todo: adafruit-board-toolkit
+# todo: optdepends
+depends=('python-pyqt5' 'python-qscintilla-qt5' 'python-pyqt5-chart'
+         'python-jupyter_client' 'python-ipykernel' 'python-ipython-genutils'
+         'python-qtconsole' 'python-pyserial' 'python-nudatus'
+         'flake8' 'python-click' 'python-black' 'python-platformdirs'
+         'python-semver' 'python-virtualenv' 'python-wheel' 'python-requests')
 makedepends=('python-setuptools')
-source=("https://github.com/mu-editor/mu/archive/$pkgver.tar.gz"
+source=("https://github.com/mu-editor/mu/archive/refs/tags/v$pkgver.tar.gz"
         "$pkgname.desktop")
-sha256sums=('d9917794de845231ffea671ceff24824bbe342c9d0da4340b237f7a915c0c358'
+sha256sums=('6ea06d09ba0ed15a2bdd87b62ad1c18a0b1edc7000956209720fcc4ad290458e'
             '4a47b1f100a2a77018bae2422cee7bfe2cbea4c9412de1abf646c2fa7a63b62e')
 
 _name=mu
