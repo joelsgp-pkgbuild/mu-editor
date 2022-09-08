@@ -26,7 +26,7 @@ source=("https://github.com/mu-editor/mu/archive/refs/tags/v$pkgver.tar.gz"
         "pyflakes-regex.patch::https://github.com/mu-editor/mu/commit/bc9a13bad85d07300bd6e4f2134d50f49404331d.patch")
 sha256sums=('6ea06d09ba0ed15a2bdd87b62ad1c18a0b1edc7000956209720fcc4ad290458e'
             '4a47b1f100a2a77018bae2422cee7bfe2cbea4c9412de1abf646c2fa7a63b62e'
-            'e84a04071b9984711df20da5cd1a78a09201c71d4807769fcae57633086545a6'
+            '58a4c67009d11c0852628b8037ad11ecc0ff8f7b3661a6febf53efd4e118d29a'
             'e6895f14c41265423c7a0d5f40ccd4b504d32962bc76cfbf14942429d0bcdf82')
 
 _name=mu
