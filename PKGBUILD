@@ -22,10 +22,12 @@ optdepends=('scrapy'
             'python-beautifulsoup4')
 source=("https://github.com/mu-editor/mu/archive/refs/tags/v$pkgver.tar.gz"
         "$pkgname.desktop"
-        "$pkgname-$pkgver.patch")
+        "$pkgname-$pkgver.patch"
+        "pyflakes-regex.patch::https://github.com/mu-editor/mu/commit/bc9a13bad85d07300bd6e4f2134d50f49404331d.patch")
 sha256sums=('6ea06d09ba0ed15a2bdd87b62ad1c18a0b1edc7000956209720fcc4ad290458e'
             '4a47b1f100a2a77018bae2422cee7bfe2cbea4c9412de1abf646c2fa7a63b62e'
-            'e84a04071b9984711df20da5cd1a78a09201c71d4807769fcae57633086545a6')
+            'e84a04071b9984711df20da5cd1a78a09201c71d4807769fcae57633086545a6'
+            'e6895f14c41265423c7a0d5f40ccd4b504d32962bc76cfbf14942429d0bcdf82')
 
 _name=mu
 
@@ -34,6 +36,8 @@ prepare() {
     cd "$_name-$pkgver"
     # Unpin all dependencies, so package doesn't break when a dependency is updated
     patch -p1 -i "$srcdir/$pkgname-$pkgver.patch"
+    # Upstream fix for some tests
+    patch -p1 -i "$srcdir/pyflakes-regex.patch"
 }
 
 build() {
