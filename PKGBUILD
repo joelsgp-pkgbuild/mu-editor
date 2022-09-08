@@ -10,7 +10,7 @@ arch=('any')
 url='https://codewith.mu/'
 license=('GPL3')
 # https://github.com/mu-editor/mu/blob/master/setup.py
-depends=('python-pyqt5' 'python-qscintilla-qt5' 'python-pyqt5-chart'
+depends=('python-pyqt5' 'qt5-serialport' 'python-qscintilla-qt5' 'python-pyqt5-chart'
          'python-jupyter_client' 'python-ipykernel' 'python-ipython-genutils'
          'python-qtconsole' 'python-adafruit-board-toolkit' 'python-pyserial' 'python-nudatus'
          'flake8' 'python-click' 'python-black' 'python-platformdirs'
