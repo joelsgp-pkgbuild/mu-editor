@@ -1,3 +1,5 @@
+pyflakes-regex.patch
+
 *.tar
 *.tar.*
 *.jar
